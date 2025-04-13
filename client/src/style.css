@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=League+Spartan:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Grotesk:wght@300..700&family=Special+Gothic+Expanded+One&display=swap');
+
+@import "tailwindcss";
+
+
+@theme {
+  --color-dark: #181C14;
+  --color-dark-secondary: #3C3D37;
+  --color-accent: #697565;
+  --color-primary: #ECDFCC;
+  --color-light: #EEEEEE;
+
+  --font-mono: "Space Grotesk", sans-serif;
+  --font-sans: "League Spartan", sans-serif;
+  --font-primary: "Poppins", sans-serif;
+  --font-heading: "Special Gothic Expanded One", sans-serif;
+}
+
+body {
+  background-color: var(--color-dark);
+  color: var(--color-light);
+  font-family: var(--font-sans);
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+@utility container {
+  @apply w-full max-w-6xl h-full;
+}
+
+@utility chat-bubble-others {
+  @apply max-w-md w-full bg-dark-secondary text-wrap px-2 pt-2 rounded-xl;
+}
+
+@utility chat-bubble {
+  @apply max-w-md w-full bg-accent text-wrap px-2 pt-2 rounded-xl place-self-end;
+}
+
+@utility chat-msg {
+  @apply text-lg text-wrap break-words;
+}
+
+@utility chat-time {
+  @apply w-full text-right text-sm text-white;
+}
