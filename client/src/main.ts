@@ -8,7 +8,7 @@ const sendButton = element.id("send-message") as (HTMLButtonElement | null);
 const messageInput = element.id("message-input") as (HTMLInputElement | null);
 const chatList = element.id("chat-list");
 
-const socket = new WebSocket("https://f252-2409-40f4-38-d66c-17d-49ab-c849-2362.ngrok-free.app/");
+const socket = new WebSocket("ws://localhost:8080");
 
 interface Chat {
   content: string,
