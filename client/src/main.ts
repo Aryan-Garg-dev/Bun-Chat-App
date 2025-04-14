@@ -7,6 +7,7 @@ const element = {
 const sendButton = element.id("send-message") as (HTMLButtonElement | null);
 const messageInput = element.id("message-input") as (HTMLInputElement | null);
 const chatList = element.id("chat-list");
+const bottom = element.id("bottom");
 
 const socket = new WebSocket("ws://localhost:8080");
 
@@ -18,6 +19,10 @@ interface Chat {
 
 let userId: string;
 let chats: Chat[] = [];
+
+const scrollToBottom = () => {
+  bottom?.scrollIntoView({ behavior: "smooth" });
+};
 
 const addChat = (chat: Chat)=>{
   if (!chat.author) return;
@@ -38,6 +43,10 @@ const addChat = (chat: Chat)=>{
   chatBubble.appendChild(chatMessage);
   chatBubble.appendChild(chatTime);
   chatList?.appendChild(chatBubble);
+
+  requestAnimationFrame(() => {
+    scrollToBottom();
+  });
 }
 
 const disableSendButton = ()=>{
@@ -50,6 +59,7 @@ const disableSendButton = ()=>{
 messageInput?.addEventListener("input", disableSendButton);
 messageInput?.addEventListener("change", disableSendButton);
 messageInput?.addEventListener("blur", disableSendButton);
+window?.addEventListener("DOMContentLoaded", ()=>messageInput?.focus())
 
 socket.addEventListener("open", (event)=>{
   const enterChatMessage: Message = {

@@ -8,32 +8,37 @@
     <title>My Chat App</title>
   </head>
   <body>
-    <div class="border-b border-b-dark-secondary flex justify-center">
+    <!-- Header -->
+    <div class="border-b fixed w-full top-0 z-50 bg-dark border-b-dark-secondary flex justify-center">
       <div class="container flex justify-center border-x border-x-dark-secondary py-3 font-heading text-3xl text-primary text-shadow-md text-shadow-accent">
         Fun-Chat
       </div>
     </div>
-    <div class="w-full h-full flex justify-center">
-      <div class="w-full min-h-[calc(100vh-62px)] flex flex-col items-center border-x border-dark-secondary relative overflow-hidden">
-        <div class="h-full container flex-1 border-x border-x-dark-secondary overflow-auto p-2 flex flex-col gap-2" id="chat-list"></div>
-        <div class="fixed flex justify-center bottom-0 w-full border-t border-t-dark-secondary">
-          <div class="container border-x border-x-dark-secondary flex justify-between gap-2 p-2">
-            <input 
-              class="w-full flex-1 bg-dark-secondary text-lg font-mono border-0 outline-0 p-2.5 px-4 focus:bg-dark-secondary/75 focus:shadow-inner" 
-              type="text"  maxlength="512"
-              placeholder="Send a message..." 
-              id="message-input"
-            />
-            <button 
-              class="min-w-36 bg-dark-secondary disabled:bg-dark-secondary/50 font-primary active:scale-95 group"
-              id="send-message"
-              disabled
-            >Send
-            </button>
-          </div>
-        </div>
+  
+    <!-- Chat Section -->
+    <div class="w-full h-full min-h-screen max-h-[calc(100vh-124px)] flex flex-1 flex-col items-center py-[62px] overflow-y-auto relative">
+      <div class="h-full container flex-1 border-x border-x-dark-secondary p-2 flex flex-col gap-2" id="chat-list"></div>
+      <div id="bottom"></div>
+    </div>
+    
+    <!-- footer -->
+    <div class="fixed flex justify-center bottom-0 z-50 bg-dark w-full border-t border-t-dark-secondary">
+      <div class="container border-x border-x-dark-secondary flex justify-between gap-2 p-2">
+        <input 
+          class="w-full flex-1 bg-dark-secondary text-lg font-mono border-0 outline-0 p-2.5 px-4 focus:bg-dark-secondary/75 focus:shadow-inner" 
+          type="text"  maxlength="512"
+          placeholder="Send a message..." 
+          id="message-input"
+        />
+        <button 
+          class="min-w-36 bg-dark-secondary disabled:bg-dark-secondary/50 font-primary active:scale-95 group"
+          id="send-message"
+          disabled
+        >Send
+        </button>
       </div>
     </div>
+
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
